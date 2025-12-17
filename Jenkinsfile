@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent agent {
+        docker {
+            image 'node:20'
+            args '-u root:root'
+        }
+    }
     
     environment {
         DOCKER_IMAGE = "jenkins-demo-app"
